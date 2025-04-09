@@ -532,34 +532,127 @@ body {
 }
 
 @media (max-width: 768px) {
-  .sobre-content {
-    grid-template-columns: 1fr;
-    text-align: center;
+  /* Header */
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .nav-list {
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 120px 0 80px;
   }
 
   .hero h1 {
     font-size: 2rem;
+    line-height: 1.3;
   }
 
-  .contato-principal {
-    flex-direction: column;
+  /* Sobre */
+  .sobre-content {
+    gap: 30px;
   }
 
-  .contato-link {
-    padding: 0.75rem 1rem;
+  .tecnologias {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Serviços */
+  .servicos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servico-card {
+    padding: 1.5rem;
+  }
+
+  /* Contato */
+  .contato-content {
+    gap: 2rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem;
+  }
+
+  .btn-enviar {
+    width: 100%;
+    justify-content: center;
   }
 }
-@media (max-width: 576px) {
+
+@media (max-width: 480px) {
+  /* Ajustes finos para telas pequenas */
+  .container {
+    padding: 0 15px;
+  }
+
+  .nav-list {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .sobre-texto h2 {
+    font-size: 1.5rem;
+  }
+
   .contato-titulo {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .contato-link {
-    flex-direction: column;
-    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  @media (hover: none) {
+    .servico-card:hover {
+      transform: none;
+    }
+
+    .nav-link:hover::after {
+      width: 0;
+    }
+  }
+}
+
+/* Correção do overflow horizontal */
+html {
+  overflow-x: hidden;
+}
+
+/* Melhoria na usabilidade de toque */
+button,
+a,
+input,
+textarea {
+  touch-action: manipulation;
+}
+
+/* Ajuste do viewport para dispositivos iOS */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
   }
 }
